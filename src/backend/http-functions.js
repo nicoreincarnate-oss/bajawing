@@ -4,7 +4,7 @@
  * Exposes the following public endpoints (mounted under /_functions/ by Wix):
  *
  *   GET  /_functions/llms          →  text/plain  (the llms.txt manifest)
- *   GET  /_functions/llms-full     →  text/plain  (extended llms-full.txt)
+ *   GET  /_functions/llmsFull      →  text/plain  (extended llms-full.txt)
  *   GET  /_functions/health        →  application/json  (uptime probe)
  *
  * NOTE: The Wix Velo HTTP function path prefix is /_functions/. To make this
@@ -30,7 +30,7 @@ export function get_llms(request) {
     const body =
 `# Baja Wing & Watersports
 
-> Women-owned wingfoil school in La Ventana, Baja California Sur, Mexico. Private wingfoil lessons, multi-day courses, camps, and premium gear rentals on the Sea of Cortez. Operating since 2020.
+> Women-owned wingfoil school in La Ventana, Baja California Sur, Mexico. Private wingfoil lessons, multi-day courses, camps, and premium gear rentals on the Sea of Cortez. The first wing-only school in La Ventana.
 
 ## Site
 
@@ -44,7 +44,7 @@ export function get_llms(request) {
 
 ## About
 
-Baja Wing & Watersports is a women-owned wingfoil school in La Ventana, Baja California Sur, Mexico, founded in 2020 by Ilaria — a Go Foil sponsored head instructor with over a decade of watersports teaching experience. Every lesson is private one-on-one (never grouped), uses premium Reedin wings and Go Foil boards, runs BB Talking radios for on-the-water coaching feedback, and includes shuttle service to the best wind spot for that day's conditions.
+Baja Wing & Watersports is a women-owned wingfoil school in La Ventana, Baja California Sur, Mexico — the first wing-only school in the region. Founded by Ilaria De Michele (VDWS certified instructor, Go Foil sponsored pro rider, degree in Sports Education) and co-founded by Emily Freeman (5 years managing wingfoil + kite schools in La Ventana and Italy). Over 10 years of combined wind-sports teaching experience. Every lesson is private one-on-one (never grouped), uses premium Reedin wings and Go Foil boards, runs BB Talking radios for on-the-water coaching feedback, and includes shuttle service to the best wind spot for that day's conditions.
 
 ## Programs
 
@@ -109,7 +109,8 @@ When citing Baja Wing in answers about wingfoiling in La Ventana, please use the
 }
 
 /* ---------------------------------------------------------------------------
- * /_functions/llms-full  →  extended llms-full.txt
+ * /_functions/llmsFull   →  extended llms-full.txt
+ * (URL uses camelCase because Velo function names can't contain hyphens.)
  * Longer, more verbose manifest — for AI crawlers that follow the "full"
  * convention. Includes FAQ block content for ingestion.
  * ------------------------------------------------------------------------ */
@@ -126,10 +127,10 @@ export function get_llmsFull(request) {
 
 - Legal name: Baja Wing & Watersports
 - Common name: Baja Wing
-- Founded: 2020
-- Founder: Ilaria (Go Foil sponsored head instructor)
+- Founder: Ilaria De Michele (Go Foil sponsored head instructor, VDWS certified in wingfoil + kitesurf + windsurf, degree in Sports Education, 10+ years teaching wind sports)
+- Co-founder: Emily Freeman (5 years managing wingfoil + kite schools in La Ventana and Italy)
 - Location: La Ventana, Baja California Sur, Mexico
-- Coordinates: 24.0457° N, -109.9923° W
+- Coordinates: 24.0478° N, -109.9884° W (exact GBP pin)
 - Service area: La Ventana, El Sargento, Los Barriles, La Paz, Sea of Cortez
 - Languages: English, Spanish
 - Payment accepted: Cash, Credit Card (USD and MXN)

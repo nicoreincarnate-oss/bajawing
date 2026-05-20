@@ -1,6 +1,6 @@
 # llms.txt redirect setup — Wix URL Redirect Manager
 
-**Goal:** Make `https://www.bajawing.com/llms.txt` and `https://www.bajawing.com/llms-full.txt` resolve to the Velo-served manifests at `/_functions/llms` and `/_functions/llms-full`, so AI crawlers that probe the conventional path find Baja Wing content immediately.
+**Goal:** Make `https://www.bajawing.com/llms.txt` and `https://www.bajawing.com/llms-full.txt` resolve to the Velo-served manifests at `/_functions/llms` and `/_functions/llmsFull`, so AI crawlers that probe the conventional path find Baja Wing content immediately.
 
 **Why two paths?**
 - `/llms.txt` — the compact manifest (~1 KB). Most AI crawlers hit this first.
@@ -24,7 +24,7 @@
 
 1. Click **+ New Redirect**.
 2. **Old URL** field — enter exactly: `/llms-full.txt`
-3. **New URL** field — enter exactly: `/_functions/llms-full`
+3. **New URL** field — enter exactly: `/_functions/llmsFull`
 4. **Redirect Type** — select `301 (Permanent)`
 5. Click **Save**.
 
