@@ -4,8 +4,9 @@
  * Runs on EVERY page load (regardless of which page is rendering). Used here
  * to set universal SEO/AEO/GEO meta tags that apply site-wide:
  *   - hreflang (en + es bidirectional via Wix Multilingual at /es/)
- *   - og:site_name, og:locale, twitter:site
+ *   - og:site_name, og:locale
  *   - default twitter:card = summary_large_image
+ *   (twitter:site intentionally omitted — BajaWing has no Twitter/X account.)
  *
  * Per-page values (title, description, og:image, page-specific JSON-LD) are
  * set inside each page's own file via wixSeoFrontend.setMetaTags() and
@@ -55,9 +56,9 @@ function setUniversalMetaTags() {
             { property: 'og:locale', content: isSpanish ? SITE.spanishLocale : SITE.locale },
             { property: 'og:locale:alternate', content: isSpanish ? SITE.locale : SITE.spanishLocale },
 
-            // Twitter defaults — page-level files can override card type and image
+            // Twitter card defaults — page-level files can override card type and image.
+            // twitter:site intentionally omitted — BajaWing has no Twitter/X account.
             { name: 'twitter:card', content: 'summary_large_image' },
-            { name: 'twitter:site', content: SITE.twitterHandle },
 
             // Crawler hints — be explicit, not implicit
             { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },

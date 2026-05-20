@@ -27,7 +27,8 @@ export const SITE = Object.freeze({
     alternateNames: ['Bajawing', 'Baja Wing', 'Baja Wing and Watersports'],
     locale: 'en_US',
     spanishLocale: 'es_ES',
-    twitterHandle: '@bajawing', // TBD: confirm or remove if no Twitter/X account
+    // Note: BajaWing does not operate a Twitter/X account.
+    // twitter:site meta tag is intentionally omitted across the site.
 });
 
 /* ---------------------------------------------------------------------------
@@ -70,7 +71,10 @@ export const BUSINESS = Object.freeze({
  * ------------------------------------------------------------------------ */
 
 export const ADDRESS = Object.freeze({
-    // TBD: add streetAddress once captured from Wix Dashboard > Business Info
+    // Operating location confirmed by Nico 2026-05-20: La Tuna Beach,
+    // within the La Ventana area on the Sea of Cortez. La Tuna Beach is
+    // the actual launch point; La Ventana is the broader locality.
+    streetAddress: 'La Tuna Beach',
     addressLocality: 'La Ventana',
     addressRegion: 'Baja California Sur',
     addressRegionShort: 'BCS',
