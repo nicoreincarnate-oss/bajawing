@@ -38,7 +38,10 @@ export const SITE = Object.freeze({
 export const BUSINESS = Object.freeze({
     legalName: 'Baja Wing & Watersports',
     displayName: 'Baja Wing & Watersports',
-    foundingDate: '2020', // TBD: confirm exact founding year with Ilaria
+    // foundingDate omitted — research 2026-05-20 surfaced that '2020' was
+    // unsupported; About Us copy + co-founder Italian operational thread
+    // suggest 2021–2024 range, not 2020. Re-add once Nico/Ilaria confirms
+    // the actual founding year. Better to omit than to lie in schema.
     description:
         'Women-owned wingfoil school in La Ventana, Baja California Sur, Mexico. ' +
         'Private wingfoil lessons, multi-day courses, camps, and premium gear ' +
@@ -159,28 +162,53 @@ export const ASSETS = Object.freeze({
 /* ---------------------------------------------------------------------------
  * Founder / head-instructor profile — used by AboutPage + Person schema
  * (E-E-A-T signal for both Google and AI engines)
+ *
+ * Verified 2026-05-20 from public sources:
+ *   - https://www.bajawing.com/about-us (school's own About page)
+ *   - https://tripoutside.com/wing-foiling-baja-with-baja-wing/ (TripOutside listing)
+ *   - Facebook clinic announcement Mar 2025 (Go Foil sponsorship confirmation)
+ *   - Personal IG @ilaria_de_michele
+ * Full citation trail in memory/ilaria-eeat-profile-2026-05-20.md
  * ------------------------------------------------------------------------ */
 
 export const FOUNDER = Object.freeze({
-    name: 'Ilaria', // TBD: full legal name from Ilaria
+    name: 'Ilaria De Michele',
     givenName: 'Ilaria',
+    familyName: 'De Michele',
     jobTitle: 'Head Wingfoil Instructor & Founder',
     description:
-        'Go Foil sponsored head instructor and founder of Baja Wing & ' +
-        'Watersports. Based year-round in La Ventana, Baja California Sur, ' +
-        'with over a decade of watersports instruction across wingfoiling, ' +
-        'kitesurfing, and SUP.',
-    image: 'https://static.wixstatic.com/media/082b5b_b40b9aa2c8e34ac69f24cbdd586d1711~mv2.jpg', // TBD: confirm correct headshot
+        'VDWS-certified head instructor and founder of Baja Wing & ' +
+        'Watersports, the first wing-only school in La Ventana, Baja ' +
+        'California Sur. Go Foil sponsored pro rider with a degree in ' +
+        'Sports Education and over 10 years of wind-sports instruction ' +
+        'across wingfoiling, kitesurfing, and windsurfing. Immersed in ' +
+        'wind sports since age 8.',
+    image: 'https://static.wixstatic.com/media/082b5b_b40b9aa2c8e34ac69f24cbdd586d1711~mv2.jpg', // TBD: confirm correct headshot with Ilaria
     sameAs: [
-        'https://www.instagram.com/baja_wing/', // TBD: replace with Ilaria's personal handle if separate
+        'https://www.instagram.com/ilaria_de_michele/',
     ],
     knowsAbout: [
         'wingfoiling instruction',
-        'foil board progression',
+        'wing foil progression',
         'kitesurfing instruction',
+        'windsurfing instruction',
+        'foil board technique',
+        'jibing clinics',
         'sea of cortez wind patterns',
+        'la ventana watersports',
     ],
-    nationality: 'IT', // TBD: confirm with Ilaria
+    hasCredential: [
+        {
+            type: 'VDWS Certified Instructor',
+            scope: 'Wingfoil, Kitesurfing, Windsurfing',
+        },
+        {
+            type: 'Degree in Sports Education',
+        },
+    ],
+    sponsor: 'Go Foil',
+    yearsTeaching: 10,
+    nationality: 'IT', // TBD: probable but not primary-source verified
     worksFor: SITE.name,
 });
 
