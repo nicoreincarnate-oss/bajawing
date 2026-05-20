@@ -189,17 +189,13 @@ export const FOUNDER = Object.freeze({
  * ------------------------------------------------------------------------ */
 
 export const RATING = Object.freeze({
-    // GBP confirmed 2026-05-20: 5.0 stars, but Google does not publicly
-    // surface a review count for this listing yet. reviewCount = null
-    // causes buildAggregateRating() to skip emission entirely (safer
-    // than fabricating a number — Google flags fake aggregate ratings).
-    //
-    // When BajaWing accumulates enough reviews for Google to surface a
-    // count, replace null with the live integer (or wire up the Places
-    // API fetch in src/backend/http-functions.js once we have an API key
-    // and the Place ID 0xabc10bdf736277ab:0xddc0e1bb6456856c).
+    // Per Nico 2026-05-20T02:05Z: use 96 as the published review count.
+    // GBP confirmed 5.0 stars; Google doesn't surface a public count on
+    // the limited Maps view but 96 reflects Nico's operator-side number.
+    // Swap to live Places API fetch when Place ID + API key are wired
+    // (Place ID: 0xabc10bdf736277ab:0xddc0e1bb6456856c).
     ratingValue: '5.0',
-    reviewCount: null,
+    reviewCount: '96',
     bestRating: '5',
     worstRating: '1',
 });
