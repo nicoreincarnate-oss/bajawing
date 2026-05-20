@@ -88,8 +88,9 @@ export const ADDRESS = Object.freeze({
  * ------------------------------------------------------------------------ */
 
 export const GEO = Object.freeze({
-    latitude: 24.0457,   // TBD: replace with exact business latitude
-    longitude: -109.9923, // TBD: replace with exact business longitude
+    // Exact pin from GBP listing (verified via Google Maps 2026-05-20)
+    latitude: 24.0478291,
+    longitude: -109.9883684,
 });
 
 /* ---------------------------------------------------------------------------
@@ -188,8 +189,17 @@ export const FOUNDER = Object.freeze({
  * ------------------------------------------------------------------------ */
 
 export const RATING = Object.freeze({
+    // GBP confirmed 2026-05-20: 5.0 stars, but Google does not publicly
+    // surface a review count for this listing yet. reviewCount = null
+    // causes buildAggregateRating() to skip emission entirely (safer
+    // than fabricating a number — Google flags fake aggregate ratings).
+    //
+    // When BajaWing accumulates enough reviews for Google to surface a
+    // count, replace null with the live integer (or wire up the Places
+    // API fetch in src/backend/http-functions.js once we have an API key
+    // and the Place ID 0xabc10bdf736277ab:0xddc0e1bb6456856c).
     ratingValue: '5.0',
-    reviewCount: '90', // TBD: confirm current Google Business Profile review count
+    reviewCount: null,
     bestRating: '5',
     worstRating: '1',
 });

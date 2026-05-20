@@ -75,7 +75,13 @@ export function buildSportsActivityLocation() {
         sport: BUSINESS.sports,
         knowsAbout: BUSINESS.knowsAbout,
         founder: { '@id': SITE.domain + '/#founder' },
-        aggregateRating: buildAggregateRating(),
+        // aggregateRating intentionally omitted — emitting AggregateRating
+        // without a verified reviewCount risks Google flagging the schema
+        // as deceptive (or auto-stripping the rich result). GBP currently
+        // shows 5.0 stars but Google does not surface a public review
+        // count, so we don't fabricate one. Re-enable once Bajawing has
+        // a verified count via live GBP fetch (Places API).
+        ...(buildAggregateRating() ? { aggregateRating: buildAggregateRating() } : {}),
     };
 }
 
@@ -448,6 +454,12 @@ function buildGeoCoordinates() {
 }
 
 function buildAggregateRating() {
+    // Only emit AggregateRating if we have a verified reviewCount.
+    // Schema.org requires reviewCount OR ratingCount on AggregateRating;
+    // emitting without it produces an invalid block that Google may flag.
+    if (!RATING || !RATING.reviewCount || RATING.reviewCount === null) {
+        return null;
+    }
     return {
         '@type': 'AggregateRating',
         ratingValue: RATING.ratingValue,

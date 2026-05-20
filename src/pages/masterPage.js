@@ -67,8 +67,8 @@ function setUniversalMetaTags() {
             // Geo signals (AEO/local SEO entity anchors)
             { name: 'geo.region', content: 'MX-BCS' },
             { name: 'geo.placename', content: 'La Ventana, Baja California Sur' },
-            { name: 'geo.position', content: '24.0457;-109.9923' },
-            { name: 'ICBM', content: '24.0457, -109.9923' },
+            { name: 'geo.position', content: '24.0478291;-109.9883684' },
+            { name: 'ICBM', content: '24.0478291, -109.9883684' },
 
             // Application name + theme
             { name: 'application-name', content: SITE.name },
